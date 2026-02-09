@@ -8,19 +8,20 @@ public class Mover : MonoBehaviour
     [SerializeField] private GameObject _target;
     public InputActionReference _move;
     private NavMeshAgent _navMeshAgent;
+    private RaycastHit _hit;
+    private bool _hasHit;
 
-    private Ray _lastRay;
-
-    void Start()
+    void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
-
-        // Debug.DrawRay(_lastRay.origin, _lastRay.direction * 100);
-        _navMeshAgent.destination = _target.transform.position;
+        if(_hasHit)
+        {
+            _navMeshAgent.destination = _hit.point;
+        }
     }
 
     void OnEnable()
@@ -35,6 +36,8 @@ public class Mover : MonoBehaviour
 
     private void Move(InputAction.CallbackContext obj)
     {
-        print("Click move pressed!");
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        _hasHit = Physics.Raycast(ray, out _hit);
     }
 }
