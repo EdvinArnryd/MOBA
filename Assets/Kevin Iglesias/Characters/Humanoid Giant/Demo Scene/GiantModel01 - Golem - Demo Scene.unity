@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 572239779}
   - component: {fileID: 572239778}
   - component: {fileID: 572239777}
+  - component: {fileID: 572239781}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -520,6 +521,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &572239781
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572239776}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c52bdf752672f324eb80f07f8c785cab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &605724525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -795,14 +818,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 509012344}
     m_Modifications:
+    - target: {fileID: 697647098840496988, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.037305605
+      objectReference: {fileID: 0}
+    - target: {fileID: 697647098840496988, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.030126685
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071343364620151500, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.104489855
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071343364620151500, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.118703224
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550935751187727211, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 68d1f784a3792a143a5036ea3704d8a1, type: 2}
     - target: {fileID: 5391011836006163916, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 07234b7ff556d604b973668cb01045f6, type: 2}
+      objectReference: {fileID: 2100000, guid: 4b4520f8acdca9747970254c78c0606b, type: 2}
     - target: {fileID: 6401258778785991962, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 07234b7ff556d604b973668cb01045f6, type: 2}
+      objectReference: {fileID: 2100000, guid: 4b4520f8acdca9747970254c78c0606b, type: 2}
     - target: {fileID: 8468617057500289297, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -846,7 +889,7 @@ PrefabInstance:
     - target: {fileID: 9066576789631251579, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 07234b7ff556d604b973668cb01045f6, type: 2}
+      objectReference: {fileID: 2100000, guid: 4b4520f8acdca9747970254c78c0606b, type: 2}
     - target: {fileID: 9137032837993464747, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
       propertyPath: m_Name
       value: Giant01 - Golem Texture01
@@ -1331,19 +1374,19 @@ PrefabInstance:
     - target: {fileID: 1909997868168684384, guid: d9af52bf624fb004abc7f4d28bdf39e2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3ac8c77169cabf34ca551257e88c8e7e, type: 2}
+      objectReference: {fileID: 2100000, guid: ee357ce287f20ad40811f810fa652e4e, type: 2}
     - target: {fileID: 3279719830271685335, guid: d9af52bf624fb004abc7f4d28bdf39e2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3ac8c77169cabf34ca551257e88c8e7e, type: 2}
+      objectReference: {fileID: 2100000, guid: ee357ce287f20ad40811f810fa652e4e, type: 2}
     - target: {fileID: 4577497310083471873, guid: d9af52bf624fb004abc7f4d28bdf39e2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3ac8c77169cabf34ca551257e88c8e7e, type: 2}
+      objectReference: {fileID: 2100000, guid: ee357ce287f20ad40811f810fa652e4e, type: 2}
     - target: {fileID: 4915082991154533488, guid: d9af52bf624fb004abc7f4d28bdf39e2, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: 68d1f784a3792a143a5036ea3704d8a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1606,19 +1649,19 @@ PrefabInstance:
     - target: {fileID: 1909997868168684384, guid: d9af52bf624fb004abc7f4d28bdf39e2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 10d6e0dabeef53d438eb0b1034fbccf4, type: 2}
+      objectReference: {fileID: 2100000, guid: d550279ca7465e343bfa9c9c4bb4be6c, type: 2}
     - target: {fileID: 3279719830271685335, guid: d9af52bf624fb004abc7f4d28bdf39e2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 10d6e0dabeef53d438eb0b1034fbccf4, type: 2}
+      objectReference: {fileID: 2100000, guid: d550279ca7465e343bfa9c9c4bb4be6c, type: 2}
     - target: {fileID: 4577497310083471873, guid: d9af52bf624fb004abc7f4d28bdf39e2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 10d6e0dabeef53d438eb0b1034fbccf4, type: 2}
+      objectReference: {fileID: 2100000, guid: d550279ca7465e343bfa9c9c4bb4be6c, type: 2}
     - target: {fileID: 4915082991154533488, guid: d9af52bf624fb004abc7f4d28bdf39e2, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: 68d1f784a3792a143a5036ea3704d8a1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
