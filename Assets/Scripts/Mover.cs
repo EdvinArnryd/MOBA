@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class Mover : MonoBehaviour
 {
-    [SerializeField] private GameObject _target;
     public InputActionReference _move;
     private NavMeshAgent _navMeshAgent;
     private RaycastHit _hit;
