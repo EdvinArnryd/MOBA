@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,13 +11,17 @@ public class StateManager : MonoBehaviour
     private Animator _animator;
     [SerializeField] private NavMeshAgent _navMeshAgent;
 
+    private Coroutine _currentIdleCoroutine;
+
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _currentState = State.Null;
     }
 
     private enum State
     {
+        Null,
         Idle,
         Walking,
         Attacking
@@ -49,6 +54,10 @@ public class StateManager : MonoBehaviour
                 break;
             case State.Walking:
                 StartWalking();
+                if (_currentIdleCoroutine != null)
+                {
+                    StopCoroutine(_currentIdleCoroutine);
+                }
                 break;
             case State.Attacking:
                 StartAttacking();
@@ -58,7 +67,19 @@ public class StateManager : MonoBehaviour
 
     private void StartIdling()
     {
-        _animator.CrossFadeInFixedTime("IdleBreathing", 0.2f);
+        _currentIdleCoroutine = StartCoroutine(AlternateIdleAnimations());
+    }
+
+    IEnumerator AlternateIdleAnimations()
+    {
+        while(true)
+        {
+            _animator.CrossFadeInFixedTime("IdleBreathing", 0.2f);
+            yield return new WaitForSeconds(4f);
+            print("In Idle state");
+            _animator.CrossFadeInFixedTime("IdleStretching", 0.2f);
+            yield return new WaitForSeconds(5.3f);
+        }
     }
 
     private void StartWalking()
