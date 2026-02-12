@@ -6,9 +6,12 @@ using UnityEngine.AI;
 
 public class StateManager : MonoBehaviour
 {
-    private State _currentState;
+    public State _currentState;
     private State _previousState;
     private Animator _animator;
+    public float _attackRange = 50f;
+
+    public bool _isAttackMode;
     [SerializeField] private NavMeshAgent _navMeshAgent;
 
     private Coroutine _currentIdleCoroutine;
@@ -19,7 +22,7 @@ public class StateManager : MonoBehaviour
         _currentState = State.Null;
     }
 
-    private enum State
+    public enum State
     {
         Null,
         Idle,
@@ -89,7 +92,7 @@ public class StateManager : MonoBehaviour
 
     private void StartAttacking()
     {
-        
+        _animator.CrossFadeInFixedTime("Attacking", 0.2f);
     }
 
 }

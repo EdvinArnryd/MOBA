@@ -10,6 +10,8 @@ public class Mover : MonoBehaviour
     private RaycastHit _hit;
     private bool _hasHit;
 
+    [SerializeField] private StateManager _stateManager;
+
     void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -38,5 +40,16 @@ public class Mover : MonoBehaviour
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
         _hasHit = Physics.Raycast(ray, out _hit);
+        if(_hit.collider.CompareTag("Enemy"))
+        {
+            _stateManager._isAttackMode = true;
+            _navMeshAgent.stoppingDistance = _stateManager._attackRange;
+            print(_navMeshAgent.stoppingDistance);
+        }
+        else
+        {
+            _stateManager._isAttackMode = false;
+            _navMeshAgent.stoppingDistance = 0;
+        }
     }
 }
