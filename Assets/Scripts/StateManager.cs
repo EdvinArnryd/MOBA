@@ -32,7 +32,11 @@ public class StateManager : MonoBehaviour
 
     void Update()
     {
-        if(_navMeshAgent.velocity.magnitude > 1f)
+        if(_isAttackMode && _navMeshAgent.velocity.magnitude < 1f)
+        {
+            _currentState = State.Attacking;
+        }
+        else if(_navMeshAgent.velocity.magnitude > 1f)
         {
             _currentState = State.Walking;
         }
