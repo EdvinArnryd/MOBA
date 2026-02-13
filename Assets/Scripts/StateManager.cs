@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -14,7 +13,8 @@ public class StateManager : MonoBehaviour
     public bool _isAttackMode;
     [SerializeField] private NavMeshAgent _navMeshAgent;
 
-    private Coroutine _currentIdleCoroutine;
+    private Coroutine _currentAnimationCoroutine;
+
 
     void Start()
     {
@@ -57,9 +57,9 @@ public class StateManager : MonoBehaviour
                 break;
             case State.Walking:
                 StartWalking();
-                if (_currentIdleCoroutine != null)
+                if (_currentAnimationCoroutine != null)
                 {
-                    StopCoroutine(_currentIdleCoroutine);
+                    StopCoroutine(_currentAnimationCoroutine);
                 }
                 break;
             case State.Attacking:
@@ -70,18 +70,34 @@ public class StateManager : MonoBehaviour
 
     private void StartIdling()
     {
-        _currentIdleCoroutine = StartCoroutine(AlternateIdleAnimations());
+        _currentAnimationCoroutine = StartCoroutine(AlternateIdleAnimations());
     }
 
     IEnumerator AlternateIdleAnimations()
     {
         while(true)
         {
+            // Use base Idle at start
             _animator.CrossFadeInFixedTime("IdleBreathing", 0.2f);
             yield return new WaitForSeconds(4f);
-            print("In Idle state");
-            _animator.CrossFadeInFixedTime("IdleStretching", 0.2f);
-            yield return new WaitForSeconds(5.3f);
+
+            int random = Random.Range(1, 3);
+
+            if(random == 1)
+            {
+                _animator.CrossFadeInFixedTime("IdleStretching", 0.2f);
+                yield return new WaitForSeconds(5.3f);
+            }
+            else if(random == 2)
+            {
+                _animator.CrossFadeInFixedTime("IdleRoar", 0.2f);
+                yield return new WaitForSeconds(5.4f);
+            }
+            else
+            {
+                _animator.CrossFadeInFixedTime("IdleBreathing", 0.2f);
+                yield return new WaitForSeconds(4f);
+            }
         }
     }
 
