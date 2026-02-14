@@ -1,16 +1,13 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-public class Mover : MonoBehaviour
-{
+public class Mover : MonoBehaviour {
+
     public InputActionReference _move;
     private NavMeshAgent _navMeshAgent;
-    private RaycastHit _hit;
+    RaycastHit _hit;
     private bool _hasHit;
-
-    [SerializeField] private StateManager _stateManager;
 
     void Awake()
     {
@@ -19,7 +16,7 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
-        if(_hasHit)
+        if (_hasHit)
         {
             _navMeshAgent.destination = _hit.point;
         }
@@ -40,16 +37,6 @@ public class Mover : MonoBehaviour
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
         _hasHit = Physics.Raycast(ray, out _hit);
-        if(_hit.collider.CompareTag("Enemy"))
-        {
-            _stateManager._isAttackMode = true;
-            _navMeshAgent.stoppingDistance = _stateManager._attackRange;
-            print(_navMeshAgent.stoppingDistance);
-        }
-        else
-        {
-            _stateManager._isAttackMode = false;
-            _navMeshAgent.stoppingDistance = 0;
-        }
     }
+
 }
